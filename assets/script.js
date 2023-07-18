@@ -19,7 +19,7 @@ const slides = [
 
 // Get references to the HTML elements
 const bannerImage = document.querySelector('.banner-img');
-const dots = Array.from(document.querySelectorAll('.dot'));
+const dots = document.querySelectorAll('.dot');
 
 // Set the initial slide index
 let slideIndex = 0;
@@ -44,35 +44,35 @@ function showSlide(index) {
 
 // Function to navigate to the previous slide
 function prevSlide() {
+console.log('Going to previous slide');
   slideIndex--;
   if (slideIndex < 0) {
     slideIndex = slides.length - 1;
   }
+  
   showSlide(slideIndex);
 }
-
 // Function to navigate to the next slide
 function nextSlide() {
   slideIndex++;
   if (slideIndex >= slides.length) {
     slideIndex = 0;
   }
+  
   showSlide(slideIndex);
 }
 
 // Add event listeners to the arrow elements
 const arrowLeft = document.querySelector('.arrow_left');
-arrowLeft.addEventListener('click', prevSlide, { once: true });
-
 const arrowRight = document.querySelector('.arrow_right');
-arrowRight.addEventListener('click', nextSlide, { once: true });
 
-// arrowLeft.addEventListener('click', prevSlide);
-// arrowRight.addEventListener('click', nextSlide);
+arrowLeft.addEventListener('click', prevSlide);
+arrowRight.addEventListener('click', nextSlide);
 
 // Add event listeners to the dots
+
 dots.forEach((dot, index) => {
-  dot.addEventListener('click', () => showSlide(index), { once: true });
+  dot.addEventListener('click', () => showSlide(index));
 });
 
 // Show the initial slide
