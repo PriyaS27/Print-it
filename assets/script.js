@@ -44,7 +44,6 @@ function showSlide(index) {
 
 // Function to navigate to the previous slide
 function prevSlide() {
-console.log('Going to previous slide');
   slideIndex--;
   if (slideIndex < 0) {
     slideIndex = slides.length - 1;
